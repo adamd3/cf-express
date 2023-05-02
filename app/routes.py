@@ -1,8 +1,13 @@
+from app import app
+from dotenv import load_dotenv
 from flask import request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from app import app
+import os
 
-sqlconfig = 'postgresql://adamdinan:password@localhost/cfexpress_db'
+load_dotenv()
+db_password = os.getenv("DATABASE_PASSWORD")
+
+sqlconfig = f'postgresql://adamdinan:{db_password}@localhost/cfexpress_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = sqlconfig
 
