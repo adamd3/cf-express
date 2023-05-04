@@ -9,9 +9,11 @@
     "axios": "^1.4.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "plotly.js": "^2.22.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-plotly.js": "^2.6.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
