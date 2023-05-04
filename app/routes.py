@@ -45,3 +45,8 @@ def gene_expression():
     response = ExpressionValue.get_expression_values(gene)
     return response
 
+@app.route('/api/gene_options')
+def gene_options():
+    gene_names = ExpressionValue.query.distinct(ExpressionValue.gene_name).all()
+    gene_names = [row.gene_name for row in gene_names]
+    return jsonify(gene_names)

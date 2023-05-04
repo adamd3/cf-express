@@ -5,6 +5,7 @@ import ExpressionPlot from './expressionPlot';
 function GeneExpression() {
   const [gene, setGene] = useState('');
   const [expressionValues, setExpressionValues] = useState('');
+  const [geneOptions, setGeneOptions] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +22,24 @@ function GeneExpression() {
       });
   };
 
+  const handleGeneChange = (event) => {
+    const value = event.target.value;
+    setGene(value);
+    if (value.length >= 2) {
+      axios
+        // .get('/api/gene_options', {
+        .get('http://127.0.0.1:5000/api/gene_options', {
+          params: { gene: value },
+        })
+        .then((response) => {
+          setGeneOptions(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
   return (
     <div>
       <h1>CF Gene Expression Atlas</h1>
@@ -31,8 +50,14 @@ function GeneExpression() {
             type="text"
             id="gene"
             value={gene}
-            onChange={(event) => setGene(event.target.value)}
+            onChange={handleGeneChange}
+            list="gene-options"
           />
+          <datalist id="gene-options">
+            {geneOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </datalist>
         </div>
         <button type="submit">Submit</button>
       </form>
