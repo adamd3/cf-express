@@ -24,8 +24,8 @@ class ExpressionValue(db.Model):
     value = db.Column(db.Float)
 
     @classmethod
-    def get_expression_values(cls, gene, cell):
-        results = cls.query.filter_by(gene_id=gene, cell_type=cell).all()
+    def get_expression_values(cls, gene):
+        results = cls.query.filter_by(gene_id=gene).all()
         expression_values = []
         for row in results:
             expression_values.append({
@@ -40,7 +40,6 @@ class ExpressionValue(db.Model):
 @app.route('/api/gene_expression')
 def gene_expression():
     gene = request.args.get('gene')
-    cell = request.args.get('cell')
-    response = ExpressionValue.get_expression_values(gene, cell)
+    response = ExpressionValue.get_expression_values(gene)
     return response
 
