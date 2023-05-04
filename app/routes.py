@@ -22,10 +22,11 @@ class ExpressionValue(db.Model):
     timepoint_id = db.Column(db.Integer)
     gene_id = db.Column(db.Integer)
     value = db.Column(db.Float)
+    gene_name = db.Column(db.String)
 
     @classmethod
     def get_expression_values(cls, gene):
-        results = cls.query.filter_by(gene_id=gene).all()
+        results = cls.query.filter_by(gene_name=gene).all()
         expression_values = []
         for row in results:
             expression_values.append({
@@ -34,6 +35,7 @@ class ExpressionValue(db.Model):
                 'timepoint_id': row.timepoint_id,
                 'cell_type': row.cell_type,
                 'value': row.value,
+                'gene_name': row.gene_name,
             })
         return jsonify(expression_values)
     
