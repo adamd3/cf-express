@@ -42,10 +42,9 @@ function GeneExpression() {
 
   return (
     <div>
-      <h1>CF Gene Expression Atlas</h1>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="gene">Gene name:</label>
         <div>
-          <label htmlFor="gene">Gene:</label>
           <input
             type="text"
             id="gene"
