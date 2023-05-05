@@ -9,7 +9,7 @@ function Footer() {
       <div>
         <a
           class="footer-link"
-          href="https://github.com/adamd3/etch-a-sketch"
+          href="https://github.com/adamd3/cf-express"
           target="_blank"
           rel="noreferrer"
         >
