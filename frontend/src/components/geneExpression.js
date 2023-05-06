@@ -8,17 +8,20 @@ function GeneExpression() {
   const [geneOptions, setGeneOptions] = useState([]);
   const [stats, setStats] = useState({});
 
-  useEffect(() => {
-    axios
-      // .get('/api/stats')
-      .get('http://127.0.0.1:5000/api/stats')
-      .then((response) => {
-        setStats(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // AD: disable for testing until integrated with backend
+  if (process.env.NODE_ENV !== 'test') {
+    useEffect(() => {
+      axios
+        // .get('/api/stats')
+        .get('http://127.0.0.1:5000/api/stats')
+        .then((response) => {
+          setStats(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, []);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();

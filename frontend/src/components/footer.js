@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer>
       <a
-        class="footer-link"
+        className="footer-link"
         href="https://github.com/adamd3/cf-express"
         target="_blank"
         rel="noreferrer"
