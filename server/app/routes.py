@@ -25,6 +25,11 @@ class ExpressionValue(db.Model):
     gene_name = db.Column(db.String)
 
     @classmethod
+    def count_by_gene_name(cls, gene_name):
+        count = cls.query.filter_by(gene_name=gene_name).count()
+        return count
+
+    @classmethod
     def get_expression_values(cls, gene):
         results = cls.query.filter_by(gene_name=gene).all()
         expression_values = []
@@ -47,6 +52,25 @@ def gene_expression():
 
 @app.route('/api/gene_options')
 def gene_options():
-    gene_names = ExpressionValue.query.distinct(ExpressionValue.gene_name).all()
+    gene_names = ExpressionValue.query.distinct(
+        ExpressionValue.gene_name).all()
     gene_names = [row.gene_name for row in gene_names]
     return jsonify(gene_names)
+
+@app.route('/api/stats')
+def stats():
+    total_genes = ExpressionValue.query.distinct(
+        ExpressionValue.gene_name).count()
+    total_values = ExpressionValue.query.count()
+    total_timepoints = ExpressionValue.query.distinct(
+        ExpressionValue.timepoint_id).count()
+    total_groups = ExpressionValue.query.distinct(
+        ExpressionValue.group_id).count()
+    total_samples = ExpressionValue.count_by_gene_name('TLR5')
+    return jsonify({
+        'total_genes': total_genes, 
+        'total_values': total_values,
+        'total_timepoints': total_timepoints,
+        'total_groups': total_groups,
+        'total_samples': total_samples,
+        })
