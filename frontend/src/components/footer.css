@@ -1,1 +1,7 @@
+footer {
+  border-top: dotted 2px black;
+}
 
+footer span {
+  margin-right: 10px;
+}

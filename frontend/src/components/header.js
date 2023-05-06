@@ -5,8 +5,11 @@ import './header.css';
 function Header() {
   return (
     <header>
-      <h1>Cystic Fibrosis gene expression atlas</h1>
-      <Logo className="logo" />
+      <h1>Cystic Fibrosis expression browser</h1>
+      <h2>Myeloid cell gene expression data</h2>
+      <a href="/">
+        <Logo className="logo" />
+      </a>
     </header>
   );
 }

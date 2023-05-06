@@ -1,11 +1,24 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ExpressionPlot from './expressionPlot';
 
 function GeneExpression() {
   const [gene, setGene] = useState('');
   const [expressionValues, setExpressionValues] = useState('');
   const [geneOptions, setGeneOptions] = useState([]);
+  const [stats, setStats] = useState({});
+
+  useEffect(() => {
+    axios
+      // .get('/api/stats')
+      .get('http://127.0.0.1:5000/api/stats')
+      .then((response) => {
+        setStats(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -58,12 +71,32 @@ function GeneExpression() {
             ))}
           </datalist>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">View</button>
       </form>
 
-      {expressionValues.length > 0 && (
+      {expressionValues.length > 0 ? (
         <div>
           <ExpressionPlot expressionValues={expressionValues} />
+        </div>
+      ) : (
+        <div className="stats">
+          <h2>Database statistics</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td>Total samples:</td>
+                <td>{stats.total_samples}</td>
+              </tr>
+              <tr>
+                <td>Total genes:</td>
+                <td>{stats.total_genes}</td>
+              </tr>
+              <tr>
+                <td>Total expression values:</td>
+                <td>{stats.total_values}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       )}
     </div>
