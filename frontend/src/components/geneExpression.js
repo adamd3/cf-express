@@ -8,24 +8,22 @@ function GeneExpression() {
   const [geneOptions, setGeneOptions] = useState([]);
   const [stats, setStats] = useState({});
 
-  // AD: disable for testing until integrated with backend
-  if (process.env.NODE_ENV !== 'test') {
-    useEffect(() => {
+  useEffect(() => {
+    const fetchData = async () => {
       axios
         // .get('/api/stats')
         .get('http://127.0.0.1:5000/api/stats')
         .then((response) => {
           setStats(response.data);
         })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, []);
-  }
+        .catch(console.error);
+    };
+    fetchData();
+  }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
+    await axios
       // .get('/api/gene_expression', {
       .get('http://127.0.0.1:5000/api/gene_expression', {
         params: { gene: gene },
@@ -38,11 +36,11 @@ function GeneExpression() {
       });
   };
 
-  const handleGeneChange = (event) => {
+  const handleGeneChange = async (event) => {
     const value = event.target.value;
     setGene(value);
     if (value.length >= 2) {
-      axios
+      await axios
         // .get('/api/gene_options', {
         .get('http://127.0.0.1:5000/api/gene_options', {
           params: { gene: value },

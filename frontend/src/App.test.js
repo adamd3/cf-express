@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import ExpressionPlot from './components/ExpressionPlot';
+import ExpressionPlot from './components/expressionPlot';
 
 test('renders the app title', async () => {
   render(<App />);
