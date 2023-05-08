@@ -2,7 +2,7 @@ import os
 import sys
 import pytest
 from app import app
-from app.models import db
+from app.routes import db
 
 def test_gene_expression_route(client):
     response = client.get('/api/gene_expression?gene=TLR5')
