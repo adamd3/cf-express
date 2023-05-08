@@ -9,7 +9,12 @@ db_password = os.getenv("DATABASE_PASSWORD")
 
 sqlconfig = f'postgresql://adamdinan:{db_password}@localhost/cfexpress_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = sqlconfig
+
+if os.environ.get('FLASK_ENV') == 'test':
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = sqlconfig
+
 
 db = SQLAlchemy(app)
 
