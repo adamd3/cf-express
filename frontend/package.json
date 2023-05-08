@@ -14,7 +14,6 @@
     "file-saver": "^2.0.5",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "nock": "^13.3.1",
     "plotly.js": "^2.22.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
@@ -35,7 +34,9 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "airbnb",
+      "prettier"
     ]
   },
   "browserslist": {
@@ -62,12 +63,6 @@
   },
   "devDependencies": {
     "jest": "^27.5.1",
-    "jest-canvas-mock": "^2.5.0",
     "react-testing-library": "^8.0.1"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "axios": "axios/dist/node/axios.cjs"
-    }
   }
 }
