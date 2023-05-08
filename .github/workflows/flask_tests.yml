@@ -1,4 +1,4 @@
-name: Flask Test
+name: Flask Tests
 
 on:
   push:
