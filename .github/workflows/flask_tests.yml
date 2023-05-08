@@ -23,6 +23,7 @@ jobs:
           pip install -U Flask
           pip install -U Flask-Cors
           pip install -U Flask-SQLAlchemy
+          pip install -U psycopg2
           pip install -U python-dotenv
       - name: Run tests
         working-directory: server
