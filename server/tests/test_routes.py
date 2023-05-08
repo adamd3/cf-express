@@ -1,7 +1,7 @@
 import os
 import sys
 import pytest
-from app import app
+from app import app, db
 
 def test_gene_expression_route(client):
     response = client.get('/api/gene_expression?gene=TLR5')

@@ -1,7 +1,7 @@
 import os
 import sys
 import pytest
-from app import app, routes
+from app import app, db, routes
 
 @pytest.fixture
 def client():
