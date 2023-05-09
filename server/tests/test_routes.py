@@ -28,14 +28,14 @@ def test_gene_expression_route(client):
 def test_gene_options_route(client):
     response = client.get('/api/gene_options')
     assert response.status_code == 200
-    expected_response = ['TLR5']
+    expected_response = ['TLR5', 'TLR5']
     assert response.json == expected_response
 
 
 def test_stats_route(client):
     response = client.get('/api/stats')
     assert response.status_code == 200
-    assert response.json['total_genes'] == 1
+    assert response.json['total_genes'] == 2
     assert response.json['total_values'] == 2
     assert response.json['total_timepoints'] == 2
     assert response.json['total_groups'] == 1
