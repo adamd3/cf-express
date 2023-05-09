@@ -1,12 +1,12 @@
 import os
 import sys
 import pytest
-from app import app
-from app.routes import db, ExpressionValue
+from app import create_app, db, ExpressionValue
 
 @pytest.fixture
 def client():
     os.environ['FLASK_ENV'] = 'test'
+    app = create_app()
     app.config['TESTING'] = True
     with app.test_client() as client:
         with app.app_context():
