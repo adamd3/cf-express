@@ -1,5 +1,8 @@
 import os
 import pytest
+import sys
+
+sys.path.insert(0, '..')
 from app import create_app
 from app.routes import db, ExpressionValue
 
