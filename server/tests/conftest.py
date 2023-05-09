@@ -3,14 +3,13 @@ import pytest
 import sys
 
 sys.path.insert(0, '..')
-from app import create_app
-from app.routes import db, ExpressionValue
+from app import create_app, db
+from app.models import ExpressionValue
 
 @pytest.fixture
 def client():
     os.environ['FLASK_ENV'] = 'test'
-    app = create_app()
-    app.config['TESTING'] = True
+    app = create_app(testing = True)
     with app.test_client() as client:
         with app.app_context():
             db.create_all()
