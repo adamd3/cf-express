@@ -9,7 +9,7 @@ from app.models import ExpressionValue
 @pytest.fixture
 def client():
     os.environ['FLASK_ENV'] = 'test'
-    app = create_app(testing = True)
+    app, db = create_app(testing = True)
     with app.test_client() as client:
         with app.app_context():
             db.create_all()
