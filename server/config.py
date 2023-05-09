@@ -1,4 +1,11 @@
 import os
+from dotenv import load_dotenv
 
-class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, 'config.env'))
+
+class Config:
+    ENV = os.environ.get('FLASK_ENV') or 'development'
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        'DATABASE_URI') or 'postgresql://<username>:<password>@<host>/<dbname>'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

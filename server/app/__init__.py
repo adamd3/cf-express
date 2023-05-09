@@ -1,11 +1,21 @@
 from config import Config
+from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+import os
+import sys
 
-app = Flask(__name__)
+db = SQLAlchemy()
 
-CORS(app)
+def create_app(config_class=Config):
+    app = Flask(__name__)    
+    app.config.from_object(config_class)
+    CORS(app)
 
-app.config.from_object(Config)
+    db.init_app(app)
 
-from app import routes
+    from app import routes
+    app.register_blueprint(routes.bp)
+
+    return app, db

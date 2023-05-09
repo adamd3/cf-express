@@ -1,22 +1,7 @@
-from app import app
-from dotenv import load_dotenv
-from flask import request, jsonify
-from flask_sqlalchemy import SQLAlchemy
-import os
+from app import db
+from flask import request, jsonify, Blueprint
 
-load_dotenv()
-db_password = os.getenv("DATABASE_PASSWORD")
-
-sqlconfig = f'postgresql://adamdinan:{db_password}@localhost/cfexpress_db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-if os.environ.get('FLASK_ENV') == 'test':
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = sqlconfig
-
-
-db = SQLAlchemy(app)
+bp = Blueprint('routes', __name__)
 
 class ExpressionValue(db.Model):
     __tablename__ = 'expression_values'
@@ -49,20 +34,20 @@ class ExpressionValue(db.Model):
             })
         return jsonify(expression_values)
     
-@app.route('/api/gene_expression')
+@bp.route('/api/gene_expression')
 def gene_expression():
     gene = request.args.get('gene')
     response = ExpressionValue.get_expression_values(gene)
     return response
 
-@app.route('/api/gene_options')
+@bp.route('/api/gene_options')
 def gene_options():
     gene_names = ExpressionValue.query.distinct(
         ExpressionValue.gene_name).all()
     gene_names = [row.gene_name for row in gene_names]
     return jsonify(gene_names)
 
-@app.route('/api/stats')
+@bp.route('/api/stats')
 def stats():
     total_genes = ExpressionValue.query.distinct(
         ExpressionValue.gene_name).count()
