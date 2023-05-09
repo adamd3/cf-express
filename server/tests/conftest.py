@@ -1,7 +1,8 @@
 import os
 import sys
 import pytest
-from app import create_app, db, ExpressionValue
+from app import create_app
+from app.routes import db, ExpressionValue
 
 @pytest.fixture
 def client():
