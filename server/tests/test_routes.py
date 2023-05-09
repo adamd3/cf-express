@@ -1,8 +1,6 @@
-import os
-import sys
 import pytest
-from app import app
-from app.routes import db
+from app import create_app
+from app.routes import db, ExpressionValue
 
 def test_gene_expression_route(client):
     response = client.get('/api/gene_expression?gene=TLR5')
