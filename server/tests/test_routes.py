@@ -38,5 +38,5 @@ def test_stats_route(client):
     assert response.json['total_genes'] == 2
     assert response.json['total_values'] == 2
     assert response.json['total_timepoints'] == 2
-    assert response.json['total_groups'] == 1
+    assert response.json['total_groups'] == 2
     assert response.json['total_samples'] == 2
