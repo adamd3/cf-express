@@ -9,20 +9,6 @@ def gene_expression():
     response = ExpressionValue.get_expression_values(gene)
     return response
 
-# @bp.route('/api/gene_expression')
-# def gene_expression():
-#     gene = request.args.get('gene')
-#     expression_values = ExpressionValue.query.filter_by(gene_name=gene).all()
-#     response = [{
-#             'gene_id': row.gene_id,
-#             'group_id': row.group_id,
-#             'timepoint_id': row.timepoint_id,
-#             'cell_type': row.cell_type,
-#             'value': row.value,
-#             'gene_name': row.gene_name,
-#         } for row in expression_values]
-#     return jsonify(response)
-
 @bp.route('/api/gene_options')
 def gene_options():
     gene_names = ExpressionValue.query.distinct(
