@@ -6,26 +6,19 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "file-saver": "^2.0.5",
     "husky": "^8.0.3",
     "jest-canvas-mock": "^2.5.0",
     "lint-staged": "^13.2.2",
-    "plotly.js": "^2.22.0",
-    "prettier": "^2.8.8",
+    "plotly.js": "^2.23.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-plotly.js": "^2.6.0",
     "react-scripts": "5.0.1",
-    "react-select": "^5.7.3",
-    "styled-components": "^5.3.10",
     "typeface-roboto": "^1.1.13",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^3.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -62,13 +55,15 @@
       "prettier --write"
     ]
   },
-  "devDependencies": {
-    "jest": "^27.5.1",
-    "react-testing-library": "^8.0.1"
-  },
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
     }
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-react-app": "^7.0.1"
   }
 }
