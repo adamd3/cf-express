@@ -12,7 +12,7 @@ function GeneExpression() {
     const fetchData = async () => {
       axios
         // .get('/api/stats')
-        .get('http://127.0.0.1:5000/api/stats')
+        .get('https://blueprint.haem.cam.ac.uk/api/stats')
         .then((response) => {
           setStats(response.data);
         })
@@ -25,7 +25,7 @@ function GeneExpression() {
     event.preventDefault();
     await axios
       // .get('/api/gene_expression', {
-      .get('http://127.0.0.1:5000/api/gene_expression', {
+      .get('https://blueprint.haem.cam.ac.uk/api/gene_expression', {
         params: { gene: gene },
       })
       .then((response) => {
@@ -42,7 +42,7 @@ function GeneExpression() {
     if (value.length >= 2) {
       await axios
         // .get('/api/gene_options', {
-        .get('http://127.0.0.1:5000/api/gene_options', {
+        .get('https://blueprint.haem.cam.ac.uk/api/gene_options', {
           params: { gene: value },
         })
         .then((response) => {
@@ -65,6 +65,7 @@ function GeneExpression() {
             value={gene}
             onChange={handleGeneChange}
             list="gene-options"
+            placeholder="e.g. TLR5"
           />
           <datalist id="gene-options">
             {geneOptions.map((option) => (
