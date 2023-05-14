@@ -1,20 +1,17 @@
 header {
-  border-bottom: dotted 2px black;
-}
-
-header .logo {
-  height: 60px;
-  width: 60px;
-  margin: 10px 0px 0px 0px;
-  padding: 0;
-  cursor: pointer;
+  min-height: 0px;
+  background-color: var(--orange);
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 
 header h1 {
-  font-size: calc(20px + 1vmin);
+  margin: 0;
 }
 
-header h2 {
-  font-size: calc(10px + 1vmin);
-  font-weight: 300;
+header a, .sidebar a {
+  text-decoration: none;
 }

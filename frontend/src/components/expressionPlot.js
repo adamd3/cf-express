@@ -64,6 +64,7 @@ function ExpressionPlot(props) {
           xaxis: { title: 'Cell Type' },
           yaxis: { title: 'log2(FPKM)' },
         }}
+        useResizeHandler={true}
       />
       <button onClick={handleDownloadData}>Download Data</button>
     </>

@@ -1,0 +1,96 @@
+.sidebar-container {
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+  background-color: #f0f0f0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.sidebar-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-header {
+  background-color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 20px;
+}
+
+.logo {
+  height: 50px;
+  margin: 0px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sidebar-content img {
+  width: 150px;
+} 
+
+h1 {
+  font-size: calc(15px + 1vmin);
+  padding: 0px;
+  margin: 7
+  px;
+}
+
+h2 {
+  font-size: calc(7px + 1vmin);
+  font-weight: 300;
+  margin: 10px;
+}
+
+form {
+  margin: 20px auto 10px auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 80%;
+  margin: 10px auto;
+}
+
+button[type="submit"] {
+  background-color: var(--orange);
+  padding: 10px 20px;
+  border: none;
+  width: 60%;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 100px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--amber);
+  cursor: pointer;
+}
+
+.sidebar-footer{
+  text-align: center;
+  background-color: #ccc;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.sidebar-footer span {
+  margin-right: 5px;
+}
+
+.sidebar-footer a {
+  text-decoration: none;
+}
