@@ -5,7 +5,7 @@ import ExpressionPlot from './components/expressionPlot';
 
 test('renders the app title', async () => {
   render(<App />);
-  const titleElement = screen.getByText(/Cystic Fibrosis expression browser/i);
+  const titleElement = screen.getByText(/CF expression browser/i);
   await expect(titleElement).toBeInTheDocument();
 });
 
