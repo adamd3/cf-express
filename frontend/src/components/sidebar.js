@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { ReactComponent as Logo } from './logo.svg';
-import gskLogo from './GSK-Logo-1.png';
-import uniCamLogo from './UniOfCam.png';
+import { ReactComponent as Logo } from '../images/logo.svg';
+import gskLogo from '../images/GSK-Logo-1.png';
+import uniCamLogo from '../images/UniOfCam.png';
 
 import '../styles/sidebar.css';
 
