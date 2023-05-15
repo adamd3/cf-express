@@ -1,6 +1,6 @@
 .sidebar-container {
   display: grid;
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: 60px 1fr 50px;
   background-color: #f0f0f0;
   height: 100vh;
   position: fixed;
@@ -26,13 +26,14 @@
 
 .logo {
   height: 50px;
-  margin: 0px;
+  margin: 0px 0px 10px 0px;
   padding: 0;
   cursor: pointer;
 }
 
 .sidebar-content img {
   width: 150px;
+  margin-bottom: 20px;
 } 
 
 h1 {
