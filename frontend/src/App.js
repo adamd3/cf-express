@@ -4,8 +4,8 @@ import GeneExpression from './components/geneExpression';
 import Header from './components/header';
 import Sidebar from './components/sidebar';
 
-import './App.css';
-import './components/sidebar.css';
+import './styles/App.css';
+import './styles/sidebar.css';
 
 function App() {
   const [expressionValues, setExpressionValues] = useState('');

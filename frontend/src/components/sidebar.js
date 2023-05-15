@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from './logo.svg';
 import gskLogo from './GSK-Logo-1.png';
 import uniCamLogo from './UniOfCam.png';
 
-import './sidebar.css';
+import '../styles/sidebar.css';
 
 function Sidebar(props) {
   const [gene, setGene] = useState('');
