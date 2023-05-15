@@ -42,10 +42,13 @@ main {
   padding: 20px;
   text-align: center;
   margin-left: 100px;
+  
 }
 
 .about {
-  text-align: left;
+  text-align: justify;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 label {

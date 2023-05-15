@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ReactComponent as Logo } from './logo.svg';
 import gskLogo from './GSK-Logo-1.png';
-import uniCamLogo from './UniOfCam.jpg';
+import uniCamLogo from './UniOfCam.png';
 
 import './sidebar.css';
 
@@ -15,8 +15,8 @@ function Sidebar(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .get('http://127.0.0.1:5000/api/gene_expression', {
-        // .get('https://blueprint.haem.cam.ac.uk/api/gene_expression', {
+      // .get('http://127.0.0.1:5000/api/gene_expression', {
+      .get('https://blueprint.haem.cam.ac.uk/api/gene_expression', {
         params: { gene: gene },
       })
       .then((response) => {
@@ -32,8 +32,8 @@ function Sidebar(props) {
     setGene(value);
     if (value.length >= 2) {
       await axios
-        .get('http://127.0.0.1:5000/api/gene_options', {
-          // .get('https://blueprint.haem.cam.ac.uk/api/gene_options', {
+        // .get('http://127.0.0.1:5000/api/gene_options', {
+        .get('https://blueprint.haem.cam.ac.uk/api/gene_options', {
           params: { gene: value },
         })
         .then((response) => {

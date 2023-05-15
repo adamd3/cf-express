@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ExpressionPlot from './expressionPlot';
+import About from './about';
 
 function GeneExpression(props) {
   const { expressionValues } = props;
@@ -10,8 +11,8 @@ function GeneExpression(props) {
   useEffect(() => {
     const fetchData = async () => {
       axios
-        .get('http://127.0.0.1:5000/api/stats')
-        // .get('https://blueprint.haem.cam.ac.uk/api/stats')
+        // .get('http://127.0.0.1:5000/api/stats')
+        .get('https://blueprint.haem.cam.ac.uk/api/stats')
         .then((response) => {
           setStats(response.data);
         })
@@ -27,24 +28,27 @@ function GeneExpression(props) {
           <ExpressionPlot expressionValues={expressionValues} />
         </div>
       ) : (
-        <div className="stats">
-          <h1>Database statistics</h1>
-          <table>
-            <tbody>
-              <tr>
-                <td>Total samples:</td>
-                <td>{stats.total_samples}</td>
-              </tr>
-              <tr>
-                <td>Total genes:</td>
-                <td>{stats.total_genes}</td>
-              </tr>
-              <tr>
-                <td>Total expression values:</td>
-                <td>{stats.total_values}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div>
+          <About />
+          <div className="stats">
+            <h1>Database statistics</h1>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Total samples:</td>
+                  <td>{stats.total_samples}</td>
+                </tr>
+                <tr>
+                  <td>Total genes:</td>
+                  <td>{stats.total_genes}</td>
+                </tr>
+                <tr>
+                  <td>Total expression values:</td>
+                  <td>{stats.total_values}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
