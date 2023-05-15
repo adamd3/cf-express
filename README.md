@@ -4,10 +4,11 @@
 ![flask-tests](https://github.com/adamd3/cf-express/actions/workflows/flask_tests.yml/badge.svg)
 
 A web app for exploring myeloid cell gene expression data from Cystic Fibrosis patients.
-
-![Browser screenshot](./images/cf-browser-screenshot.png)
+The app is hosted by the [Department of Haematology](https://www.haem.cam.ac.uk/) at the University of Cambridge.
 
 🔗 [View the App](https://blueprint.haem.cam.ac.uk/cf-express/).
+
+![Browser screenshot](./images/cf-browser-screenshot.png)
 
 ## About
 
